@@ -96,7 +96,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func fillNewRandom() -> Void{
         var rdn_x: Int = Int.random(in: 0..<nombreColonnes)
         var rdn_y: Int = Int.random(in: 0..<nombreLignes)
-        while(!celluleIsEmpty(x: rdn_x, y: rdn_y)){
+        while( !celluleIsEmpty(x: rdn_x, y: rdn_y)){
             rdn_x = Int.random(in: 0..<nombreColonnes)
             rdn_y = Int.random(in: 0..<nombreLignes)
         }
@@ -113,6 +113,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         */
         if(boardIsEmpty()){
+            print("in the if")
             for i in 0...1{ 
                 fillNewRandom()
             }
