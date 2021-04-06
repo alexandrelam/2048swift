@@ -76,7 +76,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         for i in 0..<nombreLignes {
             for j in 0..<nombreColonnes {
-                if(cellules[i][j].valeur != 0){
+                if(cellules[i][j]!.valeur != 0){
                     res = false
                 }                
             }
@@ -86,7 +86,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func celluleIsEmpty(x:Int, y:Int) -> Bool{
-        if(cellules[y][x].valeur != 0){
+        if(cellules[y][x]!.valeur != 0){
             return false
         }else{
             return true
