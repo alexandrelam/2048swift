@@ -96,9 +96,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func fillNewRandom() -> Void{
         var rdn_x: Int = Int.random(in: 0..<nombreColonnes)
         var rdn_y: Int = Int.random(in: 0..<nombreLignes)
-        while(!celluleIsEmpty(rdn_x, rdn_y)){
-            rdn_x: Int = Int.random(in: 0..<nombreColonnes)
-            rdn_y: Int = Int.random(in: 0..<nombreLignes)
+        while(!celluleIsEmpty(x: rdn_x, y: rdn_y)){
+            rdn_x = Int.random(in: 0..<nombreColonnes)
+            rdn_y = Int.random(in: 0..<nombreLignes)
         }
         let rdn_value: Int = Int.random(in: 0...1)
         cellules[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
