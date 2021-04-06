@@ -85,8 +85,54 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return res
     }
 
-    func celluleIsEmpty(x:Int, y:Int) -> Bool{
-        if(cellules[y][x]!.valeur != 0){
+    func moveCellIndirection(ligne: Int, colonne: Int, newLigne: Int, newColonne:Int){
+        if(0<ligne<nombreLignes && 0<colonne<nombreColonnes){
+            if(celluleIsEmpty(ligne: ligne+=newLigne, colonne: colonne+=newColonne)){
+                cellules[ligne+=newLigne][colonne+=newColonne].valeur = cellules[ligne][colonne].valeur 
+                cellules[ligne][colonne].valeur = 0 
+            }else if(cellules[ligne][colonne].valeur == cellules[ligne][colonne+=newColonne].valeur){
+                cellules[ligne+=newLigne][colonne+=newColonne].valeur = cellules[ligne][colonne].valeur * 2
+                cellules[ligne][colonne].valeur = 0
+            }
+            moveCellIndirection(sender: sender, ligne: ligne+=newLigne, colonne: colonne+=newColonne, newLigne: newLigne, newColonne: newColonne)
+        }
+    }
+
+    func moveAllCells(newLigne: Int, newColonne:Int){
+        if(newLigne == 1){
+            for ligne in 0..<nombreLignes{
+                for colonne 0..<nombreColonnes{
+                    var tmpLigne = nombreLignes - ligne - 1
+                    moveCellIndirection(ligne: tmpLigne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                }
+            }
+        }
+        else if(newLigne == -1){
+            for ligne in 0..<nombreLignes{
+                for colonne 0..<nombreColonnes{
+                    moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                }
+            }
+        }
+        else if(newColonne == 1){
+            for ligne in 0..<nombreLignes{
+                for colonne 0..<nombreColonnes{
+                    var tmpColonne = nombreColonnes - colonne - 1
+                    moveCellIndirection(ligne: ligne, colonne: tmpColonne, newLigne: newLigne, newColonne: newColonne)
+                }
+            }
+        }
+        else{
+             for ligne in 0..<nombreLignes{
+                for colonne 0..<nombreColonnes{
+                    moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                }
+            }
+        }
+    }
+
+    func celluleIsEmpty(ligne:Int, colonne:Int) -> Bool{
+        if(cellules[ligne][colonne]!.valeur != 0){
             return false
         }else{
             return true
@@ -94,14 +140,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func fillNewRandom() -> Void{
-        var rdn_x: Int = Int.random(in: 0..<nombreColonnes)
-        var rdn_y: Int = Int.random(in: 0..<nombreLignes)
-        while( !celluleIsEmpty(x: rdn_x, y: rdn_y)){
-            rdn_x = Int.random(in: 0..<nombreColonnes)
-            rdn_y = Int.random(in: 0..<nombreLignes)
+        var ligne: Int = Int.random(in: 0..<nombreColonnes)
+        var colonne: Int = Int.random(in: 0..<nombreLignes)
+        while( !celluleIsEmpty(ligne: ligne, colonne: colonne)){
+            ligne = Int.random(in: 0..<nombreColonnes)
+            colonne = Int.random(in: 0..<nombreLignes)
         }
         let rdn_value: Int = Int.random(in: 0...1)
-        cellules[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
+        cellules[ligne][colonne]!.valeur = 2 + 2*rdn_value
     }
 
     @IBAction func rempli(sender: UIButton) {
@@ -113,7 +159,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         */
         if(boardIsEmpty()){
-            print("in the if")
             for i in 0...1{ 
                 fillNewRandom()
             }
@@ -123,13 +168,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @objc func mouvement(sender:UISwipeGestureRecognizer){
         switch sender.direction {
             case .right:
-                print("Droite")
+                moveAllCells(newLigne: 0, newColonne: 1)
             case .left:
-                print("Gauche")
+                moveAllCells(newLigne: 0, newColonne: -1)
             case .up:
-                print("Haut")
+                moveAllCells(newLigne: -1, newColonne: 0)
             case .down:
-                print("Bas")
+                 moveAllCells(newLigne: 1, newColonne: 0)
             default:
                 break
         }
