@@ -98,6 +98,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             moveCellIndirection(ligne: incrementedLine, colonne: incrementColonne, newLigne: newLigne, newColonne: newColonne)
         }
+        fillNewRandom();
     }
 
     func moveAllCells(newLigne: Int, newColonne:Int){
