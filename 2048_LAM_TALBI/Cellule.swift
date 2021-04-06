@@ -43,13 +43,16 @@ class GameCell: UICollectionViewCell {
         switch valeur {
         case let x where x == 2:
             texte.text = "\(x)"
+            texte.textColor = UIColorFromHex(rgbValue: 0x776e65)
             self.backgroundColor = UIColorFromHex(rgbValue: 0xeee4da)
         case let x where x == 4:
             texte.text = "\(x)"
             self.backgroundColor = UIColorFromHex(rgbValue: 0xecdfc7)
+            texte.textColor = UIColorFromHex(rgbValue: 0x776e65)
         case let x where x == 8:
             texte.text = "\(x)"
             self.backgroundColor = UIColorFromHex(rgbValue: 0xf3b179)
+            texte.textColor = UIColorFromHex(rgbValue: 0x776e65)
         case let x where x == 16:
             texte.text = "\(x)"
             self.backgroundColor = UIColorFromHex(rgbValue: 0xf59563)
