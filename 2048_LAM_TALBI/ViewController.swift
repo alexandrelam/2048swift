@@ -86,7 +86,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveCellIndirection(ligne: Int, colonne: Int, newLigne: Int, newColonne:Int){
-        if(0<ligne && ligne <nombreLignes && 0<colonne && colonne<nombreColonnes){
+        if(0 <= ligne && ligne < nombreLignes && 0 <= colonne && colonne < nombreColonnes){
             let incrementedLine = ligne + newLigne
             let incrementColonne = colonne + newColonne
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
@@ -103,7 +103,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func moveAllCells(newLigne: Int, newColonne:Int){
         if(newLigne == 1){
             for ligne in 0..<nombreLignes{
-                for colonne 0..<nombreColonnes{
+                for colonne in 0..<nombreColonnes{
                     var tmpLigne = nombreLignes - ligne - 1
                     moveCellIndirection(ligne: tmpLigne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
                 }
@@ -111,14 +111,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         else if(newLigne == -1){
             for ligne in 0..<nombreLignes{
-                for colonne 0..<nombreColonnes{
+                for colonne in 0..<nombreColonnes{
                     moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
                 }
             }
         }
         else if(newColonne == 1){
             for ligne in 0..<nombreLignes{
-                for colonne 0..<nombreColonnes{
+                for colonne in 0..<nombreColonnes{
                     var tmpColonne = nombreColonnes - colonne - 1
                     moveCellIndirection(ligne: ligne, colonne: tmpColonne, newLigne: newLigne, newColonne: newColonne)
                 }
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         else{
              for ligne in 0..<nombreLignes{
-                for colonne 0..<nombreColonnes{
+                for colonne in 0..<nombreColonnes{
                     moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
                 }
             }
