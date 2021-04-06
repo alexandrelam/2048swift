@@ -92,11 +92,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur 
                 cellules[ligne][colonne]!.valeur = 0 
-            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur){
+            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]! == false){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
                 cellules[ligne][colonne]!.valeur = 0
+                cellules[incrementedLine][incrementColonne]!.fusion = true
             }
             moveCellIndirection(ligne: incrementedLine, colonne: incrementColonne, newLigne: newLigne, newColonne: newColonne)
+        }
+    }
+
+    func resetFusion(){
+        for i in 0..<nombreLignes{
+            for j in 0..<nombreColonnes{
+                cellules[i][j].fusion = false
+            }
         }
     }
 
@@ -132,6 +141,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
         }
         fillNewRandom();
+        resetFusion();
     }
 
     func celluleIsEmpty(ligne:Int, colonne:Int) -> Bool{
