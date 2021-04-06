@@ -41,6 +41,9 @@ class GameCell: UICollectionViewCell {
             texte.textAlignment = .center
             texte.textColor = UIColor.white
         }
+        
+        texte.font = UIFont.boldSystemFont(ofSize: 16.0)
+
         switch valeur {
         case let x where x == 2:
             texte.text = "\(x)"
