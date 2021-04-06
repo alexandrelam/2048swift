@@ -79,6 +79,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
         }
     }
+    
+    @objc func mouvement(sender:UISwipeGestureRecognizer){
+        switch sender.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                print("Droite")
+            case UISwipeGestureRecognizerDirection.left:
+                print("Gauche")
+            case UISwipeGestureRecognizerDirection.up:
+                print("Haut")
+            case UISwipeGestureRecognizerDirection.down:
+                print("Bas")
+            default:
+                break
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
