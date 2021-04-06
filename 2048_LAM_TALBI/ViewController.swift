@@ -112,6 +112,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         #selector(self.mouvement))
         detectionMouvementB.direction = .down
         view.addGestureRecognizer(detectionMouvementB)
+        //tesst
     }
     
 
