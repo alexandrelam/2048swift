@@ -76,10 +76,9 @@ class GameCell: UICollectionViewCell {
             self.backgroundColor = UIColorFromHex(rgbValue: 0xecc501)
         case let x where x > 2048:
             texte.text = "\(x)"
-            self.backgroundColor = UIColorFromHex(rgbValue: 0x5ea0df) 
-        default:
-            texte.text = ""
-            self.backgroundColor = UIColor.darkGray
+            self.backgroundColor = UIColorFromHex(rgbValue: 0x5ea0df) default:
+                texte.text = ""
+                self.backgroundColor = UIColor.darkGray
             
         }
 
