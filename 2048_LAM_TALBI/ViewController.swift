@@ -82,13 +82,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @objc func mouvement(sender:UISwipeGestureRecognizer){
         switch sender.direction {
-            case detectionMouvementR:
+            case .right:
                 print("Droite")
-            case detectionMouvementL:
+            case .left:
                 print("Gauche")
-            case detectionMouvementH:
+            case .up:
                 print("Haut")
-            case detectionMouvemenB:
+            case .down:
                 print("Bas")
             default:
                 break
