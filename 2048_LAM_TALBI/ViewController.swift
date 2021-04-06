@@ -92,7 +92,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur 
                 cellules[ligne][colonne]!.valeur = 0 
-            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]! == false){
+            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]!.fusion == false){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
                 cellules[ligne][colonne]!.valeur = 0
                 cellules[incrementedLine][incrementColonne]!.fusion = true
@@ -104,7 +104,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func resetFusion(){
         for i in 0..<nombreLignes{
             for j in 0..<nombreColonnes{
-                cellules[i][j].fusion = false
+                cellules[i][j]!.fusion = false
             }
         }
     }
