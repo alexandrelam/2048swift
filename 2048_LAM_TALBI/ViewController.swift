@@ -92,7 +92,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur 
                 cellules[ligne][colonne]!.valeur = 0 
-            }else if(cellules[ligne][colonne]!.valeur == cellules[ligne][incrementColonne]!.valeur){
+            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
                 cellules[ligne][colonne]!.valeur = 0
             }
