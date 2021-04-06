@@ -84,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let rdn_y: Int = Int.random(in: 0..<nombreLignes)
             let rdn_value: Int = Int.random(in: 0...1)
             
-            cellule[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
+            cellules[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
         }
     
 
