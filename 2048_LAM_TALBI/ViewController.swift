@@ -88,11 +88,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func moveCellIndirection(ligne: Int, colonne: Int, newLigne: Int, newColonne:Int){
         if(0<ligne<nombreLignes && 0<colonne<nombreColonnes){
             if(celluleIsEmpty(ligne: ligne+=newLigne, colonne: colonne+=newColonne)){
-                cellules[ligne+=newLigne][colonne+=newColonne].valeur = cellules[ligne][colonne].valeur 
-                cellules[ligne][colonne].valeur = 0 
-            }else if(cellules[ligne][colonne].valeur == cellules[ligne][colonne+=newColonne].valeur){
-                cellules[ligne+=newLigne][colonne+=newColonne].valeur = cellules[ligne][colonne].valeur * 2
-                cellules[ligne][colonne].valeur = 0
+                cellules[ligne+=newLigne][colonne+=newColonne]!.valeur = cellules[ligne][colonne]!.valeur 
+                cellules[ligne][colonne]!.valeur = 0 
+            }else if(cellules[ligne][colonne]!.valeur == cellules[ligne][colonne+=newColonne]!.valeur){
+                cellules[ligne+=newLigne][colonne+=newColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
+                cellules[ligne][colonne]!.valeur = 0
             }
             moveCellIndirection(sender: sender, ligne: ligne+=newLigne, colonne: colonne+=newColonne, newLigne: newLigne, newColonne: newColonne)
         }
