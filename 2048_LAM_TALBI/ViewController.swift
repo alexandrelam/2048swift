@@ -96,7 +96,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         }
         grille2048.backgroundColor = UIColor.gray
-        
+        let detectionMouvementR:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:
+        #selector(self.mouvement))
+        detectionMouvementR.direction = .right
+        view.addGestureRecognizer(detectionMouvementR)
+        let detectionMouvementL:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:
+        #selector(self.mouvement))
+        detectionMouvementL.direction = .left
+        view.addGestureRecognizer(detectionMouvementL)
+        let detectionMouvementH:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:
+        #selector(self.mouvement))
+        detectionMouvementH.direction = .up
+        view.addGestureRecognizer(detectionMouvementH)
+        let detectionMouvementB:UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action:
+        #selector(self.mouvement))
+        detectionMouvementB.direction = .down
+        view.addGestureRecognizer(detectionMouvementB)
     }
     
 
