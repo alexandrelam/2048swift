@@ -102,16 +102,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func moveAllCells(newLigne: Int, newColonne:Int){
         if(newLigne == 1){
-            for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
+            for colonne in 0..<nombreColonnes{
+                for ligne in 0..<nombreLignes{
                     var tmpLigne = nombreLignes - ligne - 1
                     moveCellIndirection(ligne: tmpLigne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
                 }
             }
         }
         else if(newLigne == -1){
-            for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
+            for colonne in 0..<nombreColonnes{
+                for ligne in 0..<nombreLignes{
                     moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
                 }
             }
