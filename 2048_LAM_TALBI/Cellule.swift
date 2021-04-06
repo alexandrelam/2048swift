@@ -16,7 +16,7 @@ class GameCell: UICollectionViewCell {
     }
     var implique = false;
     var texte: UILabel! = nil;
-    var fusion! = false;
+    var fusion = false;
     
     override init(frame: CGRect){
         super.init(frame: frame);
