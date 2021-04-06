@@ -154,13 +154,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     @IBAction func rempli(sender: UIButton) {
-        /*
-        for i in 0..<nombreLignes {
-            for j in 0..<nombreColonnes {
-                cellules[i][j]!.valeur = Int(pow(2, Double(j+i*j)))                 
-            }
-        }
-        */
         if(boardIsEmpty()){
             for i in 0...1{ 
                 fillNewRandom()
