@@ -86,7 +86,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveCellIndirection(ligne: Int, colonne: Int, newLigne: Int, newColonne:Int){
-        if(0<ligne<nombreLignes && 0<colonne<nombreColonnes){
+        if(0<ligne && ligne <nombreLignes && 0<colonne && colonne<nombreColonnes){
             let incrementedLine = ligne + newLigne
             let incrementColonne = colonne + newColonne
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
