@@ -70,14 +70,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return nombreLignes
     }
+    
     @IBAction func rempli(sender: UIButton) {
+        /*
         for i in 0..<nombreLignes {
             for j in 0..<nombreColonnes {
-                cellules[i][j]!.valeur = Int(pow(2, Double(j+i*j)))
-                
-                                
+                cellules[i][j]!.valeur = Int(pow(2, Double(j+i*j)))                 
             }
         }
+        */
+        for i in 0...1{
+            let rdn_x: Int = Int.random(in: 0..<nombreColonnes)
+            let rdn_y: Int = Int.random(in: 0..<nombreLignes)
+            let rdn_value: Int = Int.random(in: 0...1)
+            
+            cellule[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
+        }
+    
+
     }
     
     @objc func mouvement(sender:UISwipeGestureRecognizer){
