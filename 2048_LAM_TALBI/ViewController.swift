@@ -76,6 +76,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         for i in 0..<nombreLignes {
             for j in 0..<nombreColonnes {
+                print(cellules[i][j])
                 if(cellules[i][j] != nil){
                     res = false
                 }                
