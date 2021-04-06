@@ -71,6 +71,39 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return nombreLignes
     }
     
+    func boardIsEmpty() -> Bool{
+        var res: Bool = true
+
+        for i in 0..<nombreLignes {
+            for j in 0..<nombreColonnes {
+                if(cellules[i][j] != nil){
+                    res = false
+                }                
+            }
+        }
+
+        return res
+    }
+
+    func celluleIsEmpty(x:Int, y:Int) -> Bool{
+        if(cellules[y][x] != nil){
+            return false
+        }else{
+            return true
+        }
+    }
+
+    func fillNewRandom() -> Void{
+        var rdn_x: Int = Int.random(in: 0..<nombreColonnes)
+        var rdn_y: Int = Int.random(in: 0..<nombreLignes)
+        while(!celluleIsEmpty(rdn_x, rdn_y)){
+            rdn_x: Int = Int.random(in: 0..<nombreColonnes)
+            rdn_y: Int = Int.random(in: 0..<nombreLignes)
+        }
+        let rdn_value: Int = Int.random(in: 0...1)
+        cellules[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
+    }
+
     @IBAction func rempli(sender: UIButton) {
         /*
         for i in 0..<nombreLignes {
@@ -79,15 +112,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
         }
         */
-        for i in 0...1{
-            let rdn_x: Int = Int.random(in: 0..<nombreColonnes)
-            let rdn_y: Int = Int.random(in: 0..<nombreLignes)
-            let rdn_value: Int = Int.random(in: 0...1)
-            
-            cellules[rdn_y][rdn_x]!.valeur = 2 + 2*rdn_value
+        if(boardIsEmpty()){
+            for i in 0...1{ 
+                fillNewRandom()
+            }
         }
-    
-
     }
     
     @objc func mouvement(sender:UISwipeGestureRecognizer){
