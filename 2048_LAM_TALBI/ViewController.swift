@@ -16,8 +16,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var scoreAffich: UILabel!;
     
     var score = 0;
-    var AsMoved = false;
     var ini = true;
+    var AsMoved = 0;
     var nombreLignes = 4;
     var nombreColonnes = 4;
     let espacementCellules = 10;
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 cellules[j-1] = ligne
                 
             }
-        
+
             super.init(coder: aDecoder)
     }
     
@@ -95,17 +95,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let incrementedLine = ligne + newLigne
         let incrementColonne = colonne + newColonne
         if(0 <= incrementedLine && incrementedLine < nombreLignes && 0 <= incrementColonne && incrementColonne < nombreColonnes){ 
-            if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
+            if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne) && cellules[ligne][colonne]!.valeur != 0){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur 
                 cellules[ligne][colonne]!.valeur = 0
-                self.AsMoved = true
-            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]!.fusion == false){
+                self.AsMoved += 1
+            }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]!.fusion == false && cellules[ligne][colonne]!.valeur != 0){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
                 self.score = self.score + cellules[incrementedLine][incrementColonne]!.valeur
                 cellules[ligne][colonne]!.valeur = 0
                 cellules[incrementedLine][incrementColonne]!.fusion = true
-                self.AsMoved = true
+                self.AsMoved += 1
+                
             }
+            
             moveCellIndirection(ligne: incrementedLine, colonne: incrementColonne, newLigne: newLigne, newColonne: newColonne)
         }
         displayScore()
@@ -150,13 +152,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 }
             }
         }
-        fillNewRandom();
+        
+        if(AsMoved > 0){
+            fillNewRandom();
+        }
         resetFusion();
         resetAsMoved();
     }
+   
+
+    
     func resetAsMoved(){
-        self.AsMoved = false
+        self.AsMoved = 0
+        
     }
+    
 
     func celluleIsEmpty(ligne:Int, colonne:Int) -> Bool{
         if(cellules[ligne][colonne]!.valeur != 0){
@@ -167,7 +177,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func fillNewRandom() -> Void{
-        if(AsMoved == true || ini == true){
+        if(self.AsMoved > 0 || ini == true){
         var ligne: Int = Int.random(in: 0..<nombreColonnes)
         var colonne: Int = Int.random(in: 0..<nombreLignes)
         while( !celluleIsEmpty(ligne: ligne, colonne: colonne)){
@@ -177,7 +187,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let rdn_value: Int = Int.random(in: 0...1)
         cellules[ligne][colonne]!.valeur = 2 + 2*rdn_value
         }
-        ini = false;
+        
     }
 
     @IBAction func rempli(sender: UIButton) {
@@ -185,6 +195,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             for i in 0...1{ 
                 fillNewRandom()
             }
+            ini = false;
+            
         }
     }
     
