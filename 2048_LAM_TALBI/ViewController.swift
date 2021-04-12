@@ -16,6 +16,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var scoreAffich: UILabel!;
     
     var score = 0;
+    var AsMoved = false;
+    var ini = true;
     var nombreLignes = 4;
     var nombreColonnes = 4;
     let espacementCellules = 10;
@@ -24,6 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     required init?(coder aDecoder: NSCoder) {
         self.nombreLignes = 4
             self.nombreColonnes = 4
+        self.score = 0;
             cellules = [[]]
             cellules = ([[GameCell?]](repeating: [], count: nombreLignes))
             for j in 1...nombreLignes {
@@ -37,6 +40,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     init?(coder aDecoder: NSCoder, nombreLignes: Int, nombreColonnes:Int) { self.nombreLignes = nombreLignes
         self.nombreColonnes = nombreColonnes
+        self.score = 0
         cellules = [[]]
         cellules = ([[GameCell?]](repeating: [], count: nombreLignes))
         for j in 1...nombreLignes {
@@ -93,15 +97,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if(0 <= incrementedLine && incrementedLine < nombreLignes && 0 <= incrementColonne && incrementColonne < nombreColonnes){ 
             if(celluleIsEmpty(ligne: incrementedLine, colonne: incrementColonne)){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur 
-                cellules[ligne][colonne]!.valeur = 0 
+                cellules[ligne][colonne]!.valeur = 0
+                self.AsMoved = true
             }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]!.fusion == false){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
                 self.score = self.score + cellules[incrementedLine][incrementColonne]!.valeur
                 cellules[ligne][colonne]!.valeur = 0
                 cellules[incrementedLine][incrementColonne]!.fusion = true
+                self.AsMoved = true
             }
             moveCellIndirection(ligne: incrementedLine, colonne: incrementColonne, newLigne: newLigne, newColonne: newColonne)
         }
+        displayScore()
     }
 
     func resetFusion(){
@@ -145,6 +152,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         fillNewRandom();
         resetFusion();
+        resetAsMoved();
+    }
+    func resetAsMoved(){
+        self.AsMoved = false
     }
 
     func celluleIsEmpty(ligne:Int, colonne:Int) -> Bool{
@@ -156,6 +167,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func fillNewRandom() -> Void{
+        if(AsMoved == true || ini == true){
         var ligne: Int = Int.random(in: 0..<nombreColonnes)
         var colonne: Int = Int.random(in: 0..<nombreLignes)
         while( !celluleIsEmpty(ligne: ligne, colonne: colonne)){
@@ -164,6 +176,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         let rdn_value: Int = Int.random(in: 0...1)
         cellules[ligne][colonne]!.valeur = 2 + 2*rdn_value
+        }
+        ini = false;
     }
 
     @IBAction func rempli(sender: UIButton) {
@@ -194,7 +208,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Do any additional setup after loading the view.
         grille2048.delegate = self
         grille2048.dataSource = self
-        displayScore();
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: CGFloat(espacementCellules), bottom: 0, right: CGFloat(espacementCellules))
         layout.minimumLineSpacing = CGFloat(2)
