@@ -47,6 +47,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26k-8v-tZU">
+                                <rect key="frame" x="87" y="420" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbw-cz-9ZK">
+                                <rect key="frame" x="166" y="420" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UhX-Hn-UOr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -54,6 +68,7 @@
                     <connections>
                         <outlet property="grille2048" destination="gg9-Pg-nl3" id="XT5-ZV-y3g"/>
                         <outlet property="remplir" destination="mR8-HW-pdw" id="GFw-ie-kwc"/>
+                        <outlet property="scoreAffich" destination="bbw-cz-9ZK" id="117-Uu-Vdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnD-vn-sxX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

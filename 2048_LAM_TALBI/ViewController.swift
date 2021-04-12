@@ -13,7 +13,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
+    @IBOutlet weak var scoreAffich: UILabel!;
     
+    var score = 0;
     var nombreLignes = 4;
     var nombreColonnes = 4;
     let espacementCellules = 10;
@@ -94,6 +96,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 cellules[ligne][colonne]!.valeur = 0 
             }else if(cellules[ligne][colonne]!.valeur == cellules[incrementedLine][incrementColonne]!.valeur && cellules[ligne][colonne]!.fusion == false && cellules[incrementedLine][incrementColonne]!.fusion == false){
                 cellules[incrementedLine][incrementColonne]!.valeur = cellules[ligne][colonne]!.valeur * 2
+                self.score = self.score + cellules[incrementedLine][incrementColonne]!.valeur
                 cellules[ligne][colonne]!.valeur = 0
                 cellules[incrementedLine][incrementColonne]!.fusion = true
             }
@@ -191,6 +194,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Do any additional setup after loading the view.
         grille2048.delegate = self
         grille2048.dataSource = self
+        displayScore();
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: CGFloat(espacementCellules), bottom: 0, right: CGFloat(espacementCellules))
         layout.minimumLineSpacing = CGFloat(2)
@@ -221,7 +225,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         view.addGestureRecognizer(detectionMouvementB)
     }
     
-
+    func displayScore(){
+        self.scoreAffich.text = String(self.score) ;
+    }
 
 }
 
