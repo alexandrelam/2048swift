@@ -233,7 +233,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let res = false
         for i in 0..<nombreLignes{
             for j in 0..<nombreColonnes{
-                if(cellules[i][j]!.valeur == 64){
+                if(cellules[i][j]!.valeur == 2048){
                     return true
                 }
             }
