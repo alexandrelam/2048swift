@@ -61,6 +61,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWo-e7-TUc">
+                                <rect key="frame" x="142" y="523" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Leaderboard"/>
+                                <connections>
+                                    <segue destination="ZXP-Dq-fyO" kind="show" id="gAq-fg-II4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UhX-Hn-UOr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,16 +83,27 @@
             </objects>
             <point key="canvasLocation" x="-100" y="125.4872563718141"/>
         </scene>
-        <!--View Controller-->
+        <!--Leaderboard-->
         <scene sceneID="rJ3-KD-6nc">
             <objects>
-                <viewController id="ZXP-Dq-fyO" sceneMemberID="viewController">
+                <viewController id="ZXP-Dq-fyO" customClass="Leaderboard" customModule="_048_LAM_TALBI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b98-OC-Ra5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbD-82-5WF">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Retour"/>
+                                <connections>
+                                    <action selector="retourprecWithSender:" destination="ZXP-Dq-fyO" eventType="touchDown" id="thD-QR-SnZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ghf-U0-vgj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="C99-iW-GuU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoF-DG-YYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
