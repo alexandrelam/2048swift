@@ -10,7 +10,6 @@ import UIKit
 
 class Leaderboard: UIViewController {
 
-    private let database = Database.database(url : "https://ios2048-default-rtdb.europe-west1.firebasedatabase.app").reference()        // Do any additional setup after loading the view.
 
     @IBOutlet weak var retour: UIButton!;
     @IBOutlet weak var tableView: UITableView!;
@@ -23,17 +22,6 @@ class Leaderboard: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        var valueArr: [String: Any];
-
-        // test database fetch
-        database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
-            guard let value = snapshot.value as? [String: Any] else {
-                return
-            }
-
-            print("Value : \(value)")
-            this.valueArr = value
-        })
     }
     
 
@@ -56,6 +44,7 @@ extension Leaderboard: UITableViewDelegate{
 }
 
 extension Leaderboard: UITableViewDataSource{
+    private let database = Database.database(url : "https://ios2048-default-rtdb.europe-west1.firebasedatabase.app").reference()        // Do any additional setup after loading the view.
     
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -68,9 +57,20 @@ extension Leaderboard: UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        var valueArr: [String: Any];
+
+        // test database fetch
+        database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
+            guard let value = snapshot.value as? [String: Any] else {
+                return
+            }
+
+            print("Value : \(value)")
+            valueArr = value
+        })
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = this.valueArr[indexPath.row][0]
+        cell.textLabel?.text = valueArr[indexPath.row][0]
         return cell
     }
     
