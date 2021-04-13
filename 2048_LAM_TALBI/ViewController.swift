@@ -181,12 +181,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         resetFusion();
         resetAsMoved();
         }
-            mess += String(score)
-            let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
-            self.present(alert, animated: true, completion: nil)
+            
         
-    }
+    
    
 
     
