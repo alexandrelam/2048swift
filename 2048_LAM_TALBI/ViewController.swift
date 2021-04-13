@@ -177,6 +177,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }else{
             mess += String(score)
             let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -195,6 +196,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }else{
             return true
         }
+    }
+
+    func resetGame(){
+        for i in 0..<nombreLignes{
+            for j in 0..<nombreColonnes{
+                cellules[i][j]!.valeur = 0
+            }
+        }
+        self.score = 0
+        ini = true
     }
 
     func fillNewRandom() -> Void{
