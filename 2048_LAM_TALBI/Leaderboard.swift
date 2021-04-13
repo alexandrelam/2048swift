@@ -23,7 +23,7 @@ class Leaderboard: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        var valueArr: [String];
+        var valueArr: [String: Any];
 
         // test database fetch
         database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
