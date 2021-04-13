@@ -220,6 +220,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Do any additional setup after loading the view.
         grille2048.delegate = self
         grille2048.dataSource = self
+        displayScore();
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: CGFloat(espacementCellules), bottom: 0, right: CGFloat(espacementCellules))
         layout.minimumLineSpacing = CGFloat(2)
