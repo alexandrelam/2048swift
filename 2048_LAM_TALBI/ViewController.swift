@@ -282,7 +282,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        database.child("score").observationSingleEvent(of: .value, with : {snapshot in 
+        database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
             guard let value = snapshot.value as? [String: Any] else {
                 return
             }
