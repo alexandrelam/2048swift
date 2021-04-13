@@ -348,7 +348,7 @@ extension ViewController: UITableViewDataSource{
         return 3
     }
 
-    func tableView(_ tableView: UITableView, CellforRowAt indexPath: IndexPath) -> UITableViewCell{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Hello World"
         return cell
