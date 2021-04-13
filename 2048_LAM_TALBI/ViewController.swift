@@ -15,6 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
     @IBOutlet weak var scoreAffich: UILabel!;
+    @IBOutlet var tableView: UITableView!;
     
     
     var score = 0;
@@ -282,6 +283,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // var for table view for score
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        // test database fetch
         database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
             guard let value = snapshot.value as? [String: Any] else {
                 return
@@ -330,3 +336,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 }
 
+
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        print("you tapped me")
+    }
+}
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, CellforRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
+
+}
