@@ -14,8 +14,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
     @IBOutlet weak var scoreAffich: UILabel!;
+    let alert = UIAlertController(title: "Vous avez perdu", message: "Votre score %d", score, preferredStyle: .alert)
     
     var score = 0;
+    String mess = "Votre score : " + String(score)
+    let alert = UIAlertController(title: "Vous avez perdu", message: mess, score, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.") }))
     var ini = true;
     var AsMoved = 0;
     var nombreLignes = 4;
@@ -91,6 +95,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return res
     }
 
+    func boardIsFull() -> Bool{
+        var res: Bool = true
+
+        for i in 0..<nombreLignes {
+            for j in 0..<nombreColonnes {
+                if(cellules[i][j]!.valeur == 0){
+                    res = false
+                }                
+            }
+        }
+
+        return res
+    }
+
     func moveCellIndirection(ligne: Int, colonne: Int, newLigne: Int, newColonne:Int){
         let incrementedLine = ligne + newLigne
         let incrementColonne = colonne + newColonne
@@ -122,42 +140,43 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveAllCells(newLigne: Int, newColonne:Int){
-        if(newLigne == 1){
-            for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
-                    var tmpLigne = nombreLignes - ligne - 1
-                    moveCellIndirection(ligne: tmpLigne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+        if(boardIsFull == false){
+                if(newLigne == 1){
+                    for ligne in 0..<nombreLignes{
+                        for colonne in 0..<nombreColonnes{
+                            var tmpLigne = nombreLignes - ligne - 1
+                            moveCellIndirection(ligne: tmpLigne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                        }
+                    }
+                }else if(newLigne == -1){
+                    for ligne in 0..<nombreLignes{
+                        for colonne in 0..<nombreColonnes{
+                            moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                        }       
+                    }
+                }else if(newColonne == 1){
+                    for ligne in 0..<nombreLignes{
+                        for colonne in 0..<nombreColonnes{
+                            var tmpColonne = nombreColonnes - colonne - 1
+                            moveCellIndirection(ligne: ligne, colonne: tmpColonne, newLigne: newLigne, newColonne: newColonne)
+                        }
+                    }
+                }else{
+                    for ligne in 0..<nombreLignes{
+                        for colonne in 0..<nombreColonnes{
+                            moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
+                        }
+                    }
                 }
-            }
-        }
-        else if(newLigne == -1){
-            for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
-                    moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
-                }
-            }
-        }
-        else if(newColonne == 1){
-            for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
-                    var tmpColonne = nombreColonnes - colonne - 1
-                    moveCellIndirection(ligne: ligne, colonne: tmpColonne, newLigne: newLigne, newColonne: newColonne)
-                }
-            }
-        }
-        else{
-             for ligne in 0..<nombreLignes{
-                for colonne in 0..<nombreColonnes{
-                    moveCellIndirection(ligne: ligne, colonne: colonne, newLigne: newLigne, newColonne: newColonne)
-                }
-            }
-        }
         
         if(AsMoved > 0){
             fillNewRandom();
         }
         resetFusion();
         resetAsMoved();
+        }else{
+            self.present(alert, animated: true, completion: nil)
+        }
     }
    
 
