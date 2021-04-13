@@ -1,6 +1,0 @@
-framework module Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests {
-  umbrella header "Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
