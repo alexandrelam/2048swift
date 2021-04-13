@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    private database = Database.database().reference()
+    private let database = Database.database().reference()
     
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
