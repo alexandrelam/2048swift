@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
     @IBOutlet weak var scoreAffich: UILabel!;
-    @IBOutlet var tableView: UITableView!;
+    @IBOutlet weak var tableView: UITableView!;
     
     
     var score = 0;
@@ -284,8 +284,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
 
         // var for table view for score
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.delegate = self
+        //tableView.dataSource = self
 
         // test database fetch
         database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
