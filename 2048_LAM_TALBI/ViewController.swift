@@ -5,9 +5,12 @@
 //  Created by admin on 30/03/2021.
 //
 
+import FirebaseDatabase
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+  
     
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
@@ -278,20 +281,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // var for table view for score
-        //tableView.delegate = self
-        //tableView.dataSource = self
-
-        // test database fetch
-        database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
-            guard let value = snapshot.value as? [String: Any] else {
-                return
-            }
-
-            print("Value : \(value)")
-        })
-
         // Do any additional setup after loading the view.
         grille2048.delegate = self
         grille2048.dataSource = self
@@ -331,3 +320,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
 }
+
+
+
+
