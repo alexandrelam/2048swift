@@ -140,7 +140,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveAllCells(newLigne: Int, newColonne:Int){
-        if(boardIsFull() == false){
                 if(newLigne == 1){
                     for ligne in 0..<nombreLignes{
                         for colonne in 0..<nombreColonnes{
@@ -168,18 +167,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         }
                     }
                 }
+                
+        if(boardIsFull() == true && AsMoved == 0){
+                mess += String(score)
+                let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
+                self.present(alert, animated: true, completion: nil)
+            }
         
         if(AsMoved > 0){
             fillNewRandom();
         }
         resetFusion();
         resetAsMoved();
-        }else{
+        }
             mess += String(score)
             let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
             self.present(alert, animated: true, completion: nil)
-        }
+        
     }
    
 
