@@ -5,6 +5,7 @@
 //  Created by admin on 13/04/2021.
 //
 
+import FirebaseDatabase
 import UIKit
 
 class Leaderboard: UIViewController {
