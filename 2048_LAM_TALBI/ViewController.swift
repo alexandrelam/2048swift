@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var score = 0;
     var mess = "Votre score: "
-    
+    var resumed = false;
 
     var ini = true;
     var AsMoved = 0;
@@ -140,6 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveAllCells(newLigne: Int, newColonne:Int){
+        checkWin();
                 if(newLigne == 1){
                     for ligne in 0..<nombreLignes{
                         for colonne in 0..<nombreColonnes{
@@ -173,6 +174,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
                 self.present(alert, animated: true, completion: nil)
+                mess = "Votre score : "
             }
         
         if(AsMoved > 0){
@@ -224,6 +226,31 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
     }
+    
+    func isWin() -> Bool{
+        let res = false
+        for i in 0..<nombreLignes{
+            for j in 0..<nombreColonnes{
+                if(cellules[i][j]!.valeur == 64){
+                    return true
+                }
+            }
+            
+        }
+        return res
+    }
+    
+    func setResumed(){
+        self.resumed = true
+    }
+    
+    func checkWin(){
+        if(isWin() == true && resumed == false){
+            let alertwin = UIAlertController(title: "Vous avez gagné !", message: nil, preferredStyle: .alert)
+            alertwin.addAction(UIAlertAction(title: NSLocalizedString("Recommencer", comment: "On recommence"), style: .default, handler: { action in self.resetGame()}))
+            alertwin.addAction(UIAlertAction(title: NSLocalizedString("Continuer", comment: "Continuer"), style: .default, handler: {actions in self.setResumed() }))
+            self.present(alertwin, animated: true, completion: nil)        }
+    }
 
     @IBAction func rempli(sender: UIButton) {
         if(boardIsEmpty()){
@@ -234,6 +261,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         }
     }
+    
     
     @objc func mouvement(sender:UISwipeGestureRecognizer){
         switch sender.direction {
