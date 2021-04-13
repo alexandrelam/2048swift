@@ -1,0 +1,6 @@
+framework module Pods_2048_LAM_TALBI {
+  umbrella header "Pods-2048_LAM_TALBI-umbrella.h"
+
+  export *
+  module * { export * }
+}

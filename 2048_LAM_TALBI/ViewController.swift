@@ -14,12 +14,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     @IBOutlet weak var grille2048: UICollectionView!;
     @IBOutlet weak var remplir: UIButton!;
     @IBOutlet weak var scoreAffich: UILabel!;
-    let alert = UIAlertController(title: "Vous avez perdu", message: "Votre score %d", score, preferredStyle: .alert)
+    
     
     var score = 0;
-    String mess = "Votre score : " + String(score)
-    let alert = UIAlertController(title: "Vous avez perdu", message: mess, score, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in NSLog("The \"OK\" alert occured.") }))
+    var mess = "Votre score: "
+    
+
     var ini = true;
     var AsMoved = 0;
     var nombreLignes = 4;
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 cellules[j-1] = ligne
                 
             }
-
+            
             super.init(coder: aDecoder)
     }
     
@@ -140,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     func moveAllCells(newLigne: Int, newColonne:Int){
-        if(boardIsFull == false){
+        if(boardIsFull() == false){
                 if(newLigne == 1){
                     for ligne in 0..<nombreLignes{
                         for colonne in 0..<nombreColonnes{
@@ -175,6 +175,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         resetFusion();
         resetAsMoved();
         }else{
+            mess += String(score)
+            let alert = UIAlertController(title: "Vous avez perdu", message: mess, preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
         }
     }
