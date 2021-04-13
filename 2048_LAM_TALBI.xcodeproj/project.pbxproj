@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1DB80CF22619714C1128D9F5 /* Pods_2048_LAM_TALBITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B406E35C10EB9ECAAE02952 /* Pods_2048_LAM_TALBITests.framework */; };
-		31E5A3FBA7921A51AB4928C9 /* Pods_2048_LAM_TALBI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFF11DFE6F7697BB89A8D06 /* Pods_2048_LAM_TALBI.framework */; };
 		84D71DA42613529E00B8EA9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DA32613529E00B8EA9B /* AppDelegate.swift */; };
 		84D71DA62613529E00B8EA9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DA52613529E00B8EA9B /* SceneDelegate.swift */; };
 		84D71DA82613529E00B8EA9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DA72613529E00B8EA9B /* ViewController.swift */; };
@@ -19,7 +17,6 @@
 		84D71DBE261352A100B8EA9B /* _048_LAM_TALBITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DBD261352A100B8EA9B /* _048_LAM_TALBITests.swift */; };
 		84D71DC9261352A100B8EA9B /* _048_LAM_TALBIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DC8261352A100B8EA9B /* _048_LAM_TALBIUITests.swift */; };
 		84D71DDA261355ED00B8EA9B /* Cellule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D71DD9261355ED00B8EA9B /* Cellule.swift */; };
-		DE1A1B4520A2B5553307FF62 /* Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A3A7BCCFFF24594EA3E249C /* Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A3A7BCCFFF24594EA3E249C /* Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B406E35C10EB9ECAAE02952 /* Pods_2048_LAM_TALBITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048_LAM_TALBITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CFF11DFE6F7697BB89A8D06 /* Pods_2048_LAM_TALBI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048_LAM_TALBI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D71DA02613529E00B8EA9B /* 2048_LAM_TALBI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2048_LAM_TALBI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D71DA32613529E00B8EA9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D71DA52613529E00B8EA9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31E5A3FBA7921A51AB4928C9 /* Pods_2048_LAM_TALBI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB80CF22619714C1128D9F5 /* Pods_2048_LAM_TALBITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,23 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE1A1B4520A2B5553307FF62 /* Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B5FCD0934042BB4B579DC23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7CFF11DFE6F7697BB89A8D06 /* Pods_2048_LAM_TALBI.framework */,
-				1A3A7BCCFFF24594EA3E249C /* Pods_2048_LAM_TALBI_2048_LAM_TALBIUITests.framework */,
-				6B406E35C10EB9ECAAE02952 /* Pods_2048_LAM_TALBITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		84D71D972613529E00B8EA9B = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +87,6 @@
 				84D71DBC261352A100B8EA9B /* 2048_LAM_TALBITests */,
 				84D71DC7261352A100B8EA9B /* 2048_LAM_TALBIUITests */,
 				84D71DA12613529E00B8EA9B /* Products */,
-				2B5FCD0934042BB4B579DC23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,11 +141,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D71DCD261352A100B8EA9B /* Build configuration list for PBXNativeTarget "2048_LAM_TALBI" */;
 			buildPhases = (
-				18183429EC2FD637EEFEBB73 /* [CP] Check Pods Manifest.lock */,
 				84D71D9C2613529E00B8EA9B /* Sources */,
 				84D71D9D2613529E00B8EA9B /* Frameworks */,
 				84D71D9E2613529E00B8EA9B /* Resources */,
-				9C3FC33643ABDABA9CB1B115 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,7 +158,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D71DD0261352A100B8EA9B /* Build configuration list for PBXNativeTarget "2048_LAM_TALBITests" */;
 			buildPhases = (
-				A4F840204BF1397899841004 /* [CP] Check Pods Manifest.lock */,
 				84D71DB5261352A100B8EA9B /* Sources */,
 				84D71DB6261352A100B8EA9B /* Frameworks */,
 				84D71DB7261352A100B8EA9B /* Resources */,
@@ -199,11 +176,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D71DD3261352A100B8EA9B /* Build configuration list for PBXNativeTarget "2048_LAM_TALBIUITests" */;
 			buildPhases = (
-				0245D540DFD36324AC8031B4 /* [CP] Check Pods Manifest.lock */,
 				84D71DC0261352A100B8EA9B /* Sources */,
 				84D71DC1261352A100B8EA9B /* Frameworks */,
 				84D71DC2261352A100B8EA9B /* Resources */,
-				D460F7B8B01EBAC60E85E216 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -283,109 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0245D540DFD36324AC8031B4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		18183429EC2FD637EEFEBB73 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-2048_LAM_TALBI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C3FC33643ABDABA9CB1B115 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI/Pods-2048_LAM_TALBI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI/Pods-2048_LAM_TALBI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI/Pods-2048_LAM_TALBI-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A4F840204BF1397899841004 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-2048_LAM_TALBITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D460F7B8B01EBAC60E85E216 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests/Pods-2048_LAM_TALBI-2048_LAM_TALBIUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84D71D9C2613529E00B8EA9B /* Sources */ = {

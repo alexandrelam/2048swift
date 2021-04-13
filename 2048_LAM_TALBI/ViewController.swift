@@ -5,7 +5,6 @@
 //  Created by admin on 30/03/2021.
 //
 
-import FirebaseDatabase
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
