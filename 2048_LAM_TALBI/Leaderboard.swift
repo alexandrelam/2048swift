@@ -32,7 +32,7 @@ class Leaderboard: UIViewController {
             }
 
             print("Value : \(value)")
-            valueArr = value
+            this.valueArr = value
         })
     }
     
@@ -70,7 +70,7 @@ extension Leaderboard: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = valueArr[indexPath.row]
+        cell.textLabel?.text = this.valueArr[indexPath.row][0]
         return cell
     }
     
