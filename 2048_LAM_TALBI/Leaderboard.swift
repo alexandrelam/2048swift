@@ -10,7 +10,8 @@ import UIKit
 
 class Leaderboard: UIViewController {
 
-    let database = Database.database(url : "https://ios2048-default-rtdb.europe-west1.firebasedatabase.app").reference()     @IBOutlet weak var retour: UIButton!;
+    //let database = Database.database(url : "https://ios2048-default-rtdb.europe-west1.firebasedatabase.app").reference() ;
+    @IBOutlet weak var retour: UIButton!;
     @IBOutlet weak var tableView: UITableView!;
     @IBAction func retourprec(sender: UIButton){
         self.dismiss(animated: true, completion: nil)
@@ -59,6 +60,7 @@ extension Leaderboard: UITableViewDataSource{
         var valueArr: [Any];
 
         // test database fetch
+        /*
         database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
             guard let value = snapshot.value as? [String: Any] else {
                 return
@@ -73,10 +75,10 @@ extension Leaderboard: UITableViewDataSource{
                 i+=1
             }
             
-        })
+        })*/
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(valueArr[indexPath.row])"
+        cell.textLabel?.text = "test"
         return cell
     }
     
