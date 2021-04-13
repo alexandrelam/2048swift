@@ -286,14 +286,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // var for table view for score
         
 
-        // test database fetch
-        database.child("score").observeSingleEvent(of: .value, with : {snapshot in 
-            guard let value = snapshot.value as? [String: Any] else {
-                return
-            }
-
-            print("Value : \(value)")
-        })
 
         // Do any additional setup after loading the view.
         grille2048.delegate = self
